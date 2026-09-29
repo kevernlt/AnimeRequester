@@ -1,44 +1,42 @@
-/*const url = 'https://anime-db.p.rapidapi.com/genre';
+import { CONFIG } from './config.js';
+
+const API_KEY1 = CONFIG.API_KEY1;
+const API_KEY2 = CONFIG.API_KEY2;
+const API_KEY3 = CONFIG.API_KEY3;
+
+let title = "Overflow";
+let size = 10;
+const url = `https://anime-db.p.rapidapi.com/anime?search=${title}&page=1&size=${size}`;
+const urlGenre = `https://anime-db.p.rapidapi.com/anime?genres=Hentai&page=1&size=100`;
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': 'd99caf32bbmshd86e3af71c07ab6p1671a7jsn1f9b2353e1d8',
+		'x-rapidapi-key': API_KEY3,
 		'x-rapidapi-host': 'anime-db.p.rapidapi.com'
 	}
 };
 
-let result;
+let res = await recherche(url,options);
 
-try {
-	const response = await fetch(url, options);
-	result = await response.json();
-	//console.log(result[0].id);
-} catch (error) {
-	console.error(error);
+afficheRes(res);
+afficheMeta(res);
+
+function afficheMeta(res){
+	console.log(res.meta);
 }
-result.forEach(element => {
-    console.log(element.id);
-});*/
 
-const url2 = 'https://anime-db.p.rapidapi.com/anime?search=gundam&page=1&size=100';
-const options2 = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': 'd99caf32bbmshd86e3af71c07ab6p1671a7jsn1f9b2353e1d8',
-		'x-rapidapi-host': 'anime-db.p.rapidapi.com'
+function afficheRes(res){
+	res.data.forEach(element=>{
+		console.log(element);
+	});
+}
+
+async function recherche(url,options){
+	try{
+		const response = await fetch(url, options);
+		const result = await response.json();
+		return result;
+	} catch (error) {
+		console.error(error);
 	}
-};
-
-let result;
-
-try {
-	const response = await fetch(url2, options2);
-	result = await response.json();
-	//console.log(result.data[0].synopsis);
-} catch (error) {
-	console.error(error);
 }
-
-result.data.forEach(element => {
-    console.log(element.title);    
-});
