@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 12px 24px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.search-box input {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: 1px solid #CCC;
+    border-radius: 6px;
+    width: 220px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0px 20px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    color: #111;
+}
+
+.form-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0px 2px 8px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #111;
+}
+
+.form-control {
+    width: 65%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #A0AEC0;
+    border-radius: 4px;
+    background-color: #F8FAFC;
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: #2563EB;
+    background-color: #FFFFFF;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: backgroud-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #1D4ED8;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.result-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0px 2px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.anime-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0F172A;
+    margin-bottom: 20px;
+}
+
+.anime-poster {
+    width: 260px;
+    height: 370px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px;
+    margin-bottom: 24px;
+}
+
+.anime-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14px;
+    color: #1E293B;
+}
+
+.synopsis-text {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.anime-info-line {
+    font-size: 15px;
+}
+
+
