@@ -1,0 +1,24 @@
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: #ececec;
+    color: #212121;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: #212121;
+    color: #ececec;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+}
