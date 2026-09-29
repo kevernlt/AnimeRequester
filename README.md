@@ -1,5 +1,7 @@
 # AnimeRequester
 
+**Démo en ligne :** []()
+
 ## Description
 Une application web de recherche d'anime développé en JavaScript.L'utilisateur peut rechercher des animes grace à une API <!--A CONTINUER-->
 
@@ -11,7 +13,8 @@ Une application web de recherche d'anime développé en JavaScript.L'utilisateur
 
 
 ## Fonctionnalités & Choix techniques
-
+* **Theme Switcher**
+  * Prise en charge d'un changement de thème dynamique (mode clair / mode sombre).
 ## Lancement en local
 1. **Cloner le projet :**
    ```bash
