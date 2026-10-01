@@ -4,10 +4,6 @@ const API_KEY1 = CONFIG.API_KEY1;
 const API_KEY2 = CONFIG.API_KEY2;
 const API_KEY3 = CONFIG.API_KEY3;
 
-let title = "Overflow";
-let size = 10;
-const url = `https://anime-db.p.rapidapi.com/anime?search=${title}&page=1&size=${size}`;
-const urlGenre = `https://anime-db.p.rapidapi.com/anime?genres=Hentai&page=1&size=100`;
 const options = {
 	method: 'GET',
 	headers: {
@@ -16,7 +12,7 @@ const options = {
 	}
 };
 
-let res = await recherche(url,options);
+let res = await rechercheParTitre("Overflow", 10);
 
 afficheRes(res);
 afficheMeta(res);
@@ -39,4 +35,16 @@ async function recherche(url,options){
 	} catch (error) {
 		console.error(error);
 	}
+}
+
+async function rechercheParGenre(genre, size){
+    const urlGenre = `https://anime-db.p.rapidapi.com/anime?genres=${genre}&page=1&size=${size}`;
+    res= await recherche(urlGenre, options);
+    afficheRes(res);
+}
+
+async function rechercheParTitre(titre, size){
+    const urlTitre = `https://anime-db.p.rapidapi.com/anime?search=${titre}&page=1&size=${size}`;
+    res= await recherche(urlTitre, options);
+    afficheRes(res);
 }
