@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <script type="module" src="JS/script.js" defer></script>
 </head>
+
 <body>
     <nav class="topbar">
         <div class="topbar-container">
@@ -79,27 +81,12 @@
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="btn">Rechercher</button>
-                    <button type="reset" class="btn">Effacer</button>
+                    <input type="submit" class="btn" id="searchBtn" value="Rechercher">
+                    <input type="reset" class="btn" id="eraseBtn" value="Effacer">
                 </div>
             </form>
         </div>
-
-        <div class="result-card" id="resultCard">
-            <h2 class="anime-title">Kikou Souseiki Mospeada</h2>
-            <img 
-            src="https://imgs.search.brave.com/4ihGaapIHvjHnSgxduP4dPjBGV1SqdK0f1WJW1040kk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bXlhbmltZWxpc3Qu/bmV0L2ltYWdlcy9h/bmltZS8xNzY0LzEy/MjY3My5qcGc" 
-            alt="Kikou Souseiki Mospeada Poster" 
-            class="anime-poster"
-            >
-            <div class="anime-details">
-                <p class="synopsis-text">
-                    <strong>Synopsis :</strong> Without warning in the year 2050, an alien race known only as the Inbit arrive, invade and successfully conquer the Earth. Years later and despite brutal past failures, the inhabitants of Mars Colony send out yet another desperate Liberation Force to try and reclaim their lost home world. The fleet is all but destroyed. However, a lone survivor, Stig Bernard, finds himself on Earth. Gathering a mere handful of resistance fighters, Stig journeys on towards the Inbit's headquarters at Reflex Point in an attempt to gather intelligence and, possibly, discover a way to beat them. (Source: ANN)
-                </p>
-                <p class="anime-info-line"><strong>Genre :</strong> N/A</p>
-                <p class="anime-info-line"><strong>Classement :</strong> 4390</p>
-                <p class="anime-info-line"><strong>Nombre d'épisodes :</strong> 25</p>
-            </div>
+        <div id="resultBoard">
         </div>
     </main>
     <footer class="footer">
@@ -135,4 +122,5 @@
         </div>
     </footer>
 </body>
+
 </html>
