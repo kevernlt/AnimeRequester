@@ -8,16 +8,53 @@
     <script type="module" src="JS/script.js" defer></script>
 </head>
 <body>
-    <header class="topbar">
-        <div class="brand">
-            <img src="favicon.png" alt="Logo" class="logo-icon">
-            <span class="title">AnimeRequester</span>
-        </div>
+    <nav class="topbar">
+        <div class="topbar-container">
+            <div class="topbar-logo">
+                <a href="#">
+                    <img src="favicon.png" alt="Logo">
+                    <span>
+                        <span class="topbar-title">Anime</span>Requester
+                    </span>
+                </a>
+            </div>
 
-    <div class="search-box">
-        <input type="text" placeholder="Rechercher...">
-    </div>
-    </header>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="topbar-content">
+                <ul class="topbar-nav">
+                    <li>
+                        <a href="#">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Replace
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Replace
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="topbar-actions">
+                    <a href="#" class="btn-top btn-login">
+                        Connexion
+                    </a>
+                    <a href="#" class="btn-top btn-register">
+                        Inscription
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <main class="container">
         <h1 class="main-title">Rechercher un animé</h1>
@@ -34,6 +71,11 @@
                 <div class="form-group">
                     <label for="param" class="form-label">Paramètre :</label>
                     <input type="text" id="param" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="pages" class="form-label">Nombre de résultats par page :</label>
+                    <input type="number" id="pages" class="form-control" placeholder="10">
                 </div>
 
                 <div class="button-group">
@@ -60,5 +102,37 @@
             </div>
         </div>
     </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-brand">
+                    <h4>
+                        <span>Anime</span>Requester
+                    </h4>
+                    <p class="footer-muted footer-small">
+                        Projet R301 - BUT Informatique
+                    </p>
+                    <p class="footer-muted footer-small">
+                        &copy; 2026 Tout droits réservés.
+                    </p>
+                </div>
+            
+                <div class="footer-column">
+                    <h5>Équipe</h5>
+                    <ul>
+                        <li><a href="#">Les Charpentiers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>À propos</h5>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Conditions générales d'utilisation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
