@@ -1,0 +1,3 @@
+.env
+*.json
+JS/config.js
