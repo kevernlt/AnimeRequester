@@ -1,0 +1,161 @@
+.main-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0px auto;
+    padding: 60px 15px;
+    flex: 1;
+}
+
+.page-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.team-name {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background-color: rgba(210, 10, 40, 0.1);
+    color: rgb(210, 10, 40);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.page-header h1 {
+    margin: 0px 0px 8px;
+    color: #212529;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.page-header p {
+    margin: 0px;
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-section, .members-section {
+    margin-bottom: 50px;
+    padding: 40px;
+    background-color: #FFF;
+    border: 1px solid rgba(108, 117, 125, 0.1);
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-section h2, .members-section h2 {
+    margin: 0px 0px 20px;
+    color: #212529;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section-marker {
+    margin-right: 8px;
+    color: rgb(210, 10, 40);
+    font-weight: 900;
+}
+
+.about-section p {
+    margin: 0px;
+    color: #6c757d;
+    line-height: 1.8;
+}
+
+.about-section strong {
+    color: #212529;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.member-card {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3 ease, box-shadow 0.3 ease;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.member-icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    color: rgb(210, 10, 40);
+}
+
+.avatar-head {
+    position: absolute;
+    top: 3px;
+    left: 22px;
+    width: 20px;
+    height: 20px;
+    border: 5px solid rgb(210, 10, 40);
+    border-radius: 50%;
+}
+
+.avatar-body {
+    position: absolute;
+    bottom: 2px;
+    left: 9px;
+    width: 46px;
+    height: 25px;
+    border: 5px solid rgb(210, 10, 40);
+    border-radius: 30px 30px 8px 8px;
+}
+
+.member-card h3 {
+    margin: 0px 0px 8px;
+    color: #212529;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.member-card p {
+    margin: 0px 0px 20px;
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.member-link {
+    text-decoration: none;
+}
+
+.role {
+    display: inline-block;
+    margin-top: auto;
+    padding: 7px 14px;
+    border-radius: 50px;
+    background-color: #212529;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+
+
+
