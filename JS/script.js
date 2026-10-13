@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //API KEYS public
 const API_KEY1 = "d99caf32bbmshd86e3af71c07ab6p1671a7jsn1f9b2353e1d8";
 const API_KEY2 = "03e6f1d4b7mshdcf666fa4bcac0cp1ec3eejsncb005a7f349e";
@@ -10,6 +9,7 @@ const eraseButton = document.getElementById("eraseBtn");
 const searchField = document.getElementById("param");
 const searchType = document.getElementById("search-type");
 const resultBoard = document.getElementById("resultBoard");
+
 
 
 //fetcher options
@@ -94,7 +94,9 @@ function createResult(anime){
 
 //initializing hte buttons
 function initButtons(){
-	searchButton.addEventListener("click", async (e) => search(e));
+    if (searchButton) {
+        searchButton.addEventListener("click", async (e) => search(e));
+    }
 }
 
 function clearBoard(){
@@ -102,10 +104,12 @@ function clearBoard(){
 }
 
 initButtons();
-=======
->>>>>>> 3fae0716b6e0c25f45511fbaf53ea6222890f9b3
 const buttonTheme = document.querySelector("#theme-toggler");
-
+if (sessionStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
 buttonTheme.addEventListener("click", function () {
     document.body.classList.toggle("dark");
+	const mode = document.body.classList.contains("dark") ? "dark" : "light";
+    sessionStorage.setItem("theme", mode);
 });
