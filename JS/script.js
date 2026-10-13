@@ -75,6 +75,27 @@ async function rechercheParTitre(titre, size){
     return res;
 }
 
+//get list of genres
+async function getGenres(){
+	const urlGenre = "https://anime-db.p.rapidapi.com/genre";
+	const res = await recherche(urlGenre,options);
+	const result = [];
+	res.forEach(element =>{
+		result.push(element.id);
+	})
+	return result;
+}
+
+//add genres options
+async function optionGenres() {
+	const result = getGenres();
+	let txt;
+	(await result).forEach(element=>{
+		txt+=`<option value="${element}">${element}</option>`
+	})
+	//TODO adding the text at the genre selection
+}
+
 //searching function
 async function search (e){
 	e.preventDefault();
@@ -114,6 +135,7 @@ function initButtons(){
 	searchButton.addEventListener("click", async (e) => search(e));
 }
 
+//clearing board
 function clearBoard(){
 	resultBoard.innerHTML = "";
 }
