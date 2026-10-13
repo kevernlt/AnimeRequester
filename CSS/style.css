@@ -1,3 +1,8 @@
+:root{
+    --bg: #ececec; 
+    --text: #212121;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -54,6 +59,7 @@ body {
     border: 1px solid #A0AEC0;
     border-radius: 4px;
     background-color: #F8FAFC;
+    color: var(--text);
     outline: none;
 }
 
@@ -77,7 +83,7 @@ body {
     font-size: 14px;
     cursor: pointer;
     border-radius: 14px;
-    transition: backgroud-color 0.2s;
+    transition: background-color 0.2s;
 }
 
 .btn:hover {
@@ -366,4 +372,29 @@ body {
 
 .footer-column a:hover {
     color: #fff;
+}
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--bg);
+    color: #212121;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    --bg: #212121;
+    --text: #E6E8EB;
+    color: #ececec;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
 }
