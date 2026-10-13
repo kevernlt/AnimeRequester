@@ -1,6 +1,32 @@
 :root{
-    --bg: #ececec; 
+    --bg: #ececec;
     --text: #212121;
+    --label: #111111;
+    --text-strong: #0F172A;
+    --text-body: #1E293B;
+    --muted: #6c757d;
+
+    --card-bg: #FFFFFF;
+    --card-border: #E2E8F0;
+    --shadow: rgba(0, 0, 0, 0.12);
+    --shadow-soft: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.1);
+    --section-border: rgba(108, 117, 125, 0.1);
+
+    --input-bg: #F8FAFC;
+    --input-border: #A0AEC0;
+    --input-focus-bg: #FFFFFF;
+    --focus-border: #2563EB;
+
+    --accent: #2563EB;
+    --accent-hover: #1D4ED8;
+
+    --red: rgb(210, 10, 40);
+    --red-soft: rgba(210, 10, 40, 0.1);
+
+    --member-bg: #F8F9FA;
+    --role-bg: #212529;
+    --role-text: #FFFFFF;
 }
 html,
 body {
@@ -18,8 +44,34 @@ body {
 }
 
 body.dark {
-    -bg: #212121;
-    color: #ececec;
+    --bg: #121417;
+    --text: #E6E8EB;
+    --label: #F1F5F9;
+    --text-strong: #F8FAFC;
+    --text-body: #CBD5E1;
+    --muted: #9AA4B2;
+
+    --card-bg: #1C2026;
+    --card-border: #2D343D;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --shadow-soft: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.6);
+    --section-border: rgba(255, 255, 255, 0.06);
+
+    --input-bg: #14181D;
+    --input-border: #4B5563;
+    --input-focus-bg: #1C2026;
+    --focus-border: #60A5FA;
+
+    --accent: #2563EB;
+    --accent-hover: #3B82F6;
+
+    --red: #F0455F;
+    --red-soft: rgba(240, 69, 95, 0.15);
+
+    --member-bg: #252A32;
+    --role-bg: #3A414B;
+    --role-text: #F1F5F9;
 }
 
 button {
@@ -74,7 +126,7 @@ body {
 .form-label {
     font-weight: bold;
     font-size: 14px;
-    color: #111;
+    color: var(--label);
 }
 
 .form-control {
