@@ -9,6 +9,7 @@ const eraseButton = document.getElementById("eraseBtn");
 const searchField = document.getElementById("param");
 const searchType = document.getElementById("search-type");
 const resultBoard = document.getElementById("resultBoard");
+const genre = document.getElementById("genre");
 
 
 //fetcher options
@@ -19,6 +20,23 @@ const options = {
 		'x-rapidapi-host': 'anime-db.p.rapidapi.com'
 	}
 };
+
+// search by genre
+searchType.addEventListener("change", function () {
+    if (searchType.value === "gender") {
+        // by genre
+        searchField.hidden = true;
+        genre.hidden = false;
+        searchField.required = false;
+        genre.required = true;
+    } else {
+        // by title
+        searchField.hidden = false;
+        genre.hidden = true;
+        searchField.required = true;
+        genre.required = false;
+    }
+});
 
 //alt information in console
 function afficheMeta(res){

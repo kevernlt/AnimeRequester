@@ -39,11 +39,19 @@
                 <div class="form-group">
                     <label for="param" class="form-label">Paramètre :</label>
                     <input type="text" id="param" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="pages" class="form-label">Nombre de résultats par page :</label>
-                    <input type="number" id="pages" class="form-control" placeholder="10">
+                    <select id="genre" class="form-control" hidden>
+                        <option value="">Choisissez un genre</option>
+                        <option value="Action">Action</option>
+                        <option value="Aventure">Aventure</option>
+                        <option value="Comédie">Comédie</option>
+                        <option value="Drame">Drame</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Horreur">Horreur</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Science-fiction">Science-fiction</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Thriller">Thriller</option>
+                    </select>
                 </div>
 
                 <div class="button-group">
@@ -80,7 +88,7 @@
                 <div class="footer-column">
                     <h5>À propos</h5>
                     <ul>
-                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="pages/mentions-legales.html">Mentions légales</a></li>
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
