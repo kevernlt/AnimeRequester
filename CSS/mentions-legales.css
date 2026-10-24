@@ -58,7 +58,7 @@
     align-items: baseline; 
     gap: 10px; 
     margin: 0px 0px 18px; 
-    font-size: 1.08rem; 
+    font-size: 1.08em; 
     line-height: 1.4; 
     letter-spacing: 0.045em; 
     text-transform: uppercase; 
@@ -66,7 +66,7 @@
 
 .section-marker { 
     color: #d20a28; 
-    font-size: 1.45rem; 
+    font-size: 1.45em; 
     font-weight: 900; 
 }
 
@@ -81,7 +81,7 @@
 
 .small-muted { 
     padding-top: 20px;
-    font-size: 0.86rem; 
+    font-size: 0.86em; 
 }
 
 .details-list { 
@@ -106,7 +106,7 @@
     place-items: center; 
     border-radius: 8px; 
     background-color: #F5F5F5; 
-    font-size: 1rem; 
+    font-size: 1em; 
     font-weight: 700; 
 }
 
