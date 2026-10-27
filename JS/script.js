@@ -93,16 +93,19 @@ function createResult(anime){
 
 //initializing hte buttons
 function initButtons(){
-	searchButton.addEventListener("click", async (e) => search(e));
+    if (searchButton) {
+        searchButton.addEventListener("click", async (e) => search(e));
+    }
 }
 
 function clearBoard(){
 	resultBoard.innerHTML = "";
 }
 
-initButtons();
 const buttonTheme = document.querySelector("#theme-toggler");
 
 buttonTheme.addEventListener("click", function () {
     document.body.classList.toggle("dark");
 });
+
+initButtons();
