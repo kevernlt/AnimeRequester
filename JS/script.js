@@ -6,6 +6,10 @@ const searchType = document.getElementById("search-type");
 const resultBoard = document.getElementById("resultBoard");
 const genre = document.getElementById("genre");
 
+//let variables
+let pages = 0;
+let searchContent;
+let searchTypeActual;
 
 //fetcher options
 const options = {
@@ -22,6 +26,7 @@ searchType.addEventListener("change", function () {
         genre.hidden = false;
         searchField.required = false;
         genre.required = true;
+		optionGenres();
     } else {
         // by title
         searchField.hidden = false;
@@ -56,21 +61,10 @@ async function recherche(url,options){
 
 //genre-search function 
 async function rechercheParGenre(genre, size){
-	const param = await getIdByName(genre);
-	if(param == null)return false;
-    const urlGenre = `https://api.tenrai.org/v1/anime?genres=${await getIdByName(genre)}`;
+    const urlGenre = `https://api.tenrai.org/v1/anime?genres=${genre}`;
 	console.log(urlGenre);
     let res= await recherche(urlGenre, options);
     return res;
-}
-
-// retrieve the ID of the genre
-async function getIdByName(genre){
-	const res = await getGenres();
-	const found = res.find(
-		(element) => element.name.toLowerCase() === genre.toLowerCase());
-	//console.log(found.mal_id);
-	return found?.mal_id ?? null;
 }
 
 //title-search function
@@ -90,16 +84,12 @@ async function getGenres(){
 
 //add genres options
 async function optionGenres() {
-	const res = getGenres();
-	const result = [];
-	res.forEach(element =>{
-		result.push(element.name);
-	})
+	const res = await getGenres();
 	let txt;
-	result.forEach(element=>{
-		txt+=`<option value="${element}">${element}</option>`
+	res.forEach(element=>{
+		txt+=`<option value="${element.mal_id}">${element.name}</option>`
 	})
-	//TODO adding the text at the genre selection
+	genre.innerHTML+=txt;
 }
 
 //searching function
@@ -111,7 +101,7 @@ async function search (e){
 	if(type == "title"){
 		res= await rechercheParTitre(searchField.value, 10);
 	} else{
-		res= await rechercheParGenre(searchField.value, 10);
+		res= await rechercheParGenre(genre.value, 10);
 		if(!res)return badParam();
 	}
 	console.log(res);
