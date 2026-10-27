@@ -1,8 +1,3 @@
-//API KEYS public
-const API_KEY1 = "d99caf32bbmshd86e3af71c07ab6p1671a7jsn1f9b2353e1d8";
-const API_KEY2 = "03e6f1d4b7mshdcf666fa4bcac0cp1ec3eejsncb005a7f349e";
-const API_KEY3 = "21cc2e0e88msh1a86a7a3327ed17p10ebd3jsn617fbdb19e48";
-
 //DOM elements
 const searchButton = document.getElementById("searchBtn");
 const eraseButton = document.getElementById("eraseBtn");
@@ -14,10 +9,8 @@ const genre = document.getElementById("genre");
 
 //fetcher options
 const options = {
-	method: 'GET',
 	headers: {
-		'x-rapidapi-key': API_KEY2,
-		'x-rapidapi-host': 'anime-db.p.rapidapi.com'
+		Accept: 'application/json'
 	}
 };
 
@@ -63,34 +56,47 @@ async function recherche(url,options){
 
 //genre-search function 
 async function rechercheParGenre(genre, size){
-    const urlGenre = `https://anime-db.p.rapidapi.com/anime?genres=${genre}&page=1&size=${size}`;
+	const param = await getIdByName(genre);
+	if(param == null)return false;
+    const urlGenre = `https://api.tenrai.org/v1/anime?genres=${await getIdByName(genre)}`;
+	console.log(urlGenre);
     let res= await recherche(urlGenre, options);
     return res;
 }
 
+// retrieve the ID of the genre
+async function getIdByName(genre){
+	const res = await getGenres();
+	const found = res.find(
+		(element) => element.name.toLowerCase() === genre.toLowerCase());
+	//console.log(found.mal_id);
+	return found?.mal_id ?? null;
+}
+
 //title-search function
 async function rechercheParTitre(titre, size){
-    const urlTitre = `https://anime-db.p.rapidapi.com/anime?search=${titre}&page=1&size=${size}`;
+    const urlTitre = `https://api.tenrai.org/v1/anime?q=${titre}`;
     let res= await recherche(urlTitre, options);
     return res;
 }
 
 //get list of genres
 async function getGenres(){
-	const urlGenre = "https://anime-db.p.rapidapi.com/genre";
+	const urlGenre = 'https://api.tenrai.org/v1/genres/anime';
 	const res = await recherche(urlGenre,options);
-	const result = [];
-	res.forEach(element =>{
-		result.push(element.id);
-	})
-	return result;
+	console.log(res);
+	return res.data;
 }
 
 //add genres options
 async function optionGenres() {
-	const result = getGenres();
+	const res = getGenres();
+	const result = [];
+	res.forEach(element =>{
+		result.push(element.name);
+	})
 	let txt;
-	(await result).forEach(element=>{
+	result.forEach(element=>{
 		txt+=`<option value="${element}">${element}</option>`
 	})
 	//TODO adding the text at the genre selection
@@ -106,23 +112,41 @@ async function search (e){
 		res= await rechercheParTitre(searchField.value, 10);
 	} else{
 		res= await rechercheParGenre(searchField.value, 10);
+		if(!res)return badParam();
 	}
 	console.log(res);
+	if(res.pagination.items.total == 0)return noResult();
 	res.data.forEach(element=>{
 		createResult(element);
 	});
 }
 
+//handle no result error
+function noResult(){
+	const err = document.createElement("div");
+	err.classList.add("error");
+	err.innerHTML = `Aucun résultat.`;
+	resultBoard.appendChild(err);
+}
+
+//handle bad parameters error
+function badParam(){
+	const err = document.createElement("div");
+	err.classList.add("error");
+	err.innerHTML = `Ce genre n'existe pas.`;
+	resultBoard.appendChild(err);
+}
+
 //creating the card result
 function createResult(anime){
-	let resultCard = document.createElement("div");
+	const resultCard = document.createElement("div");
 	resultCard.classList.add("result-card");
 	resultCard.innerHTML = `
 		<h2 class="anime-title">${anime.title}</h2>
-		<img src="${anime.image}" alt="${anime.title}">
+		<img src="${anime.images.jpg.image_url}" alt="${anime.images.jpg.image_url}">
 		<div class="anime-details">
 		<p class="synopsis-text"><strong>Synopsis :</strong> ${anime.synopsis}</p>
-		<p class="anime-info-line"><strong>Genre :</strong> ${anime.genres.join(", ")}</p>
+		<p class="anime-info-line"><strong>Genre :</strong> ${anime.genres.map(g=>g.name).join(', ')}</p>
 		<p class="anime-info-line"><strong>Classement :</strong> ${anime.rank}</p>
 		<p class="anime-info-line"><strong>Nombre d'épisodes :</strong> ${anime.episodes}</p>
 		</div>
