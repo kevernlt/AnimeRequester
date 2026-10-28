@@ -8,6 +8,7 @@ const genre = document.getElementById("genre");
 
 //let variables
 let pages = 0;
+let nextPage = false;
 let searchContent;
 let searchTypeActual;
 
@@ -60,16 +61,16 @@ async function recherche(url,options){
 }
 
 //genre-search function 
-async function rechercheParGenre(genre, size){
-    const urlGenre = `https://api.tenrai.org/v1/anime?genres=${genre}`;
+async function rechercheParGenre(genre, page){
+    const urlGenre = `https://api.tenrai.org/v1/anime?page=${page}&limit=10&genres=${genre}`;
 	console.log(urlGenre);
     let res= await recherche(urlGenre, options);
     return res;
 }
 
 //title-search function
-async function rechercheParTitre(titre, size){
-    const urlTitre = `https://api.tenrai.org/v1/anime?q=${titre}`;
+async function rechercheParTitre(titre, page){
+    const urlTitre = `https://api.tenrai.org/v1/anime?q=${titre}&page=${page}&limit=10`;
     let res= await recherche(urlTitre, options);
     return res;
 }
@@ -96,12 +97,14 @@ async function optionGenres() {
 async function search (e){
 	e.preventDefault();
 	clearBoard();
-	let type = searchType.value;
+	searchTypeActual = searchType.value;
 	let res;
-	if(type == "title"){
-		res= await rechercheParTitre(searchField.value, 10);
+	if(searchTypeActual == "title"){
+		searchContent = searchField.value;
+		res= await rechercheParTitre(searchContent, 1);
 	} else{
-		res= await rechercheParGenre(genre.value, 10);
+		searchContent = genre.value;
+		res= await rechercheParGenre(searchContent, 1);
 		if(!res)return badParam();
 	}
 	console.log(res);
@@ -109,6 +112,28 @@ async function search (e){
 	res.data.forEach(element=>{
 		createResult(element);
 	});
+	pages = res.pagination.current_page;
+	nextPage = res.pagination.has_next_page;
+	needLoadMore();
+}
+
+async function searchNoClear(e,page){
+	e.preventDefault();
+	let res;
+	if(searchTypeActual = "title"){
+		res= await rechercheParTitre(searchContent, page);
+	} else {
+		res= await rechercheParGenre(searchContent, page);
+		if(!res)return badParam();
+	}
+	console.log(res);
+	if(res.pagination.items.total == 0)return noResult();
+	res.data.forEach(element=>{
+		createResult(element);
+	});
+	pages = res.pagination.current_page;
+	nextPage = res.pagination.has_next_page;
+	needLoadMore();
 }
 
 //handle no result error
@@ -144,7 +169,19 @@ function createResult(anime){
 	resultBoard.appendChild(resultCard);
 }
 
-//initializing hte buttons
+function needLoadMore(){
+	if(nextPage){
+		const buttonLoad = document.createElement("input");
+		buttonLoad.classList.add("btn");
+		buttonLoad.type = "submit";
+		buttonLoad.id = "loadBtn";
+		buttonLoad.value = "Charger plus";
+		buttonLoad.addEventListener("click", async (e) => searchNoClear(e,pages++));
+		resultBoard.appendChild(buttonLoad);
+	}
+}
+
+//initializing the buttons
 function initButtons(){
 	searchButton.addEventListener("click", async (e) => search(e));
 }
