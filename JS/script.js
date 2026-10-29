@@ -7,7 +7,7 @@ const resultBoard = document.getElementById("resultBoard");
 const genre = document.getElementById("genre");
 
 //let variables
-let pages = 0;
+let actualPage = 0;
 let nextPage = false;
 let searchContent;
 let searchTypeActual;
@@ -71,6 +71,7 @@ async function rechercheParGenre(genre, page){
 //title-search function
 async function rechercheParTitre(titre, page){
     const urlTitre = `https://api.tenrai.org/v1/anime?q=${titre}&page=${page}&limit=10`;
+    console.log(urlTitre);
     let res= await recherche(urlTitre, options);
     return res;
 }
@@ -112,7 +113,7 @@ async function search (e){
 	res.data.forEach(element=>{
 		createResult(element);
 	});
-	pages = res.pagination.current_page;
+	actualPage = res.pagination.current_page;
 	nextPage = res.pagination.has_next_page;
 	needLoadMore();
 }
@@ -120,7 +121,7 @@ async function search (e){
 async function searchNoClear(e,page){
 	e.preventDefault();
 	let res;
-	if(searchTypeActual = "title"){
+	if(searchTypeActual == "title"){
 		res= await rechercheParTitre(searchContent, page);
 	} else {
 		res= await rechercheParGenre(searchContent, page);
@@ -131,7 +132,7 @@ async function searchNoClear(e,page){
 	res.data.forEach(element=>{
 		createResult(element);
 	});
-	pages = res.pagination.current_page;
+	actualPage = res.pagination.current_page;
 	nextPage = res.pagination.has_next_page;
 	needLoadMore();
 }
@@ -176,7 +177,7 @@ function needLoadMore(){
 		buttonLoad.type = "submit";
 		buttonLoad.id = "loadBtn";
 		buttonLoad.value = "Charger plus";
-		buttonLoad.addEventListener("click", async (e) => searchNoClear(e,pages++));
+		buttonLoad.addEventListener("click", async (e) => {buttonLoad.remove();await searchNoClear(e,++actualPage);});
 		resultBoard.appendChild(buttonLoad);
 	}
 }
