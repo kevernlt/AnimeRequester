@@ -11,6 +11,8 @@ let actualPage = 0;
 let nextPage = false;
 let searchContent;
 let searchTypeActual;
+let nbResult;
+let totalResult;
 
 //fetcher options
 const options = {
@@ -115,9 +117,12 @@ async function search (e){
 	});
 	actualPage = res.pagination.current_page;
 	nextPage = res.pagination.has_next_page;
+	nbResult = res.pagination.current_page * res.pagination.items.per_page;
+	totalResult = res.pagination.items.total;
 	needLoadMore();
 }
 
+//search function whitout clearing precedent result
 async function searchNoClear(e,page){
 	e.preventDefault();
 	let res;
@@ -134,6 +139,7 @@ async function searchNoClear(e,page){
 	});
 	actualPage = res.pagination.current_page;
 	nextPage = res.pagination.has_next_page;
+	nbResult = page * res.pagination.items.per_page;
 	needLoadMore();
 }
 
@@ -165,18 +171,20 @@ function createResult(anime){
 		<p class="anime-info-line"><strong>Genre :</strong> ${anime.genres.map(g=>g.name).join(', ')}</p>
 		<p class="anime-info-line"><strong>Classement :</strong> ${anime.rank}</p>
 		<p class="anime-info-line"><strong>Nombre d'épisodes :</strong> ${anime.episodes}</p>
+		<a href="${anime.url}" class="btn MALBtn" target="_blank" rel="noopener noreferrer">Voir sur <img src="../MALIcon.svg" alt="MyAnimeList"></a>
 		</div>
 	`;
 	resultBoard.appendChild(resultCard);
 }
 
+//Load more button for multiple result
 function needLoadMore(){
 	if(nextPage){
 		const buttonLoad = document.createElement("input");
 		buttonLoad.classList.add("btn");
 		buttonLoad.type = "submit";
 		buttonLoad.id = "loadBtn";
-		buttonLoad.value = "Charger plus";
+		buttonLoad.value = `Charger plus (${nbResult} sur ${totalResult})`;
 		buttonLoad.addEventListener("click", async (e) => {buttonLoad.remove();await searchNoClear(e,++actualPage);});
 		resultBoard.appendChild(buttonLoad);
 	}
