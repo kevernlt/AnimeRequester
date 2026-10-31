@@ -8,7 +8,7 @@ const searchButton = document.getElementById("searchBtn");
 const eraseButton = document.getElementById("eraseBtn");
 const searchField = document.getElementById("param");
 const searchType = document.getElementById("search-type");
-const resultBoard = document.getElementById("resultBoard");
+const resultBoard = document.getElementById("resultBoard"); 
 
 
 //fetcher options
