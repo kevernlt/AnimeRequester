@@ -171,7 +171,7 @@ function createResult(anime){
 		<p class="anime-info-line"><strong>Genre :</strong> ${anime.genres.map(g=>g.name).join(', ')}</p>
 		<p class="anime-info-line"><strong>Classement :</strong> ${anime.rank}</p>
 		<p class="anime-info-line"><strong>Nombre d'épisodes :</strong> ${anime.episodes}</p>
-		<a href="${anime.url}" class="btn MALBtn" target="_blank" rel="noopener noreferrer">Voir sur <img src="../MALIcon.svg" alt="MyAnimeList"></a>
+		<a href="${anime.url}" class="btn MALBtn" target="_blank" rel="noopener noreferrer">Voir sur <img src="MALIcon.svg" alt="MyAnimeList"></a>
 		</div>
 	`;
 	resultBoard.appendChild(resultCard);
