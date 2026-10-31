@@ -1,7 +1,61 @@
 :root{
-    --bg: #ececec; 
+    --bg: #ececec;
     --text: #212121;
+    --label: #111111;
+    --title:#0F172A;
+    --card-bg: #FFFFFF;
+    --card-border:#E2E8F0;
+    --input-bg:#F8FAFC; 
+    --input-border: #A0AEC0;
+    --input-focus-bg: #FFFFFF;
+    --focus-border: #2563EB;
+    --main-title:#111; 
+    --button-mode: #0F172A;
+    --text-button-mode:#FFFFFF;
 }
+
+body.dark {
+    --bg: #212121;
+    --text: #E6E8EB;
+    --label: #F1F5F9;
+    --title: #F8FAFC;
+    --card-bg: #1C2026;
+    --card-border: #2D343D;
+    --input-bg: #14181D;
+    --input-border: #4B5563;
+    --input-focus-bg: #1C2026;
+    --input-border: #4B5563;
+    --main-title:#A0AEC0;
+    --button-mode: #0F172A;
+    --text-button-mode:#FFFFFF;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--bg);
+    color: #212121;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    --bg: #121417;
+    --text: #E6E8EB;
+    --label: #F1F5F9;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+}
+
 
 * {
     margin: 0;
@@ -22,12 +76,12 @@
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 24px;
-    color: #111;
+    color:var(--main-title);
 }
 
 .form-card {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 24px;
     box-shadow: 0px 2px 8px;
@@ -45,23 +99,23 @@
 .form-label {
     font-weight: bold;
     font-size: 14px;
-    color: #111;
+    color: var(--label);
 }
 
 .form-control {
     width: 65%;
     padding: 8px 12px;
     font-size: 14px;
-    border: 1px solid #A0AEC0;
+    border: 1px solid var(--input-border);
     border-radius: 4px;
-    background-color: #F8FAFC;
+    background-color: var(--input-bg);
     color: var(--text);
     outline: none;
 }
 
 .form-control:focus {
-    border-color: #2563EB;
-    background-color: #FFFFFF;
+    border-color: var(--focus-border);
+    background-color: var(--input-focus-bg);
 }
 
 .button-group {
@@ -72,7 +126,7 @@
 }
 
 .btn {
-    background-color: #2563EB;
+    background-color: var(--focus-border);
     color: #FFFFFF;
     border: none;
     padding: 10px 40px;
@@ -91,8 +145,8 @@
 }
 
 .result-card {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 28px;
     box-shadow: 0px 2px 8px;
@@ -105,7 +159,7 @@
 .anime-title {
     font-size: 20px;
     font-weight: bold;
-    color: #0F172A;
+    color: var(--title);
     margin-bottom: 20px;
 }
 
@@ -369,6 +423,13 @@
 .footer-column a:hover {
     color: #fff;
 }
+
+#theme-toggler {
+    border-radius: 5%;
+    background-color:var(--button-mode);
+    color: var(--text-button-mode);
+}
+
 html,
 body {
     margin: 0;
@@ -382,12 +443,6 @@ body {
     color: #212121;
 
     transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark {
-    --bg: #212121;
-    --text: #E6E8EB;
-    color: #ececec;
 }
 
 button {
