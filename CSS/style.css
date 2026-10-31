@@ -64,10 +64,6 @@ button {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    background-color: #F5F5F5;
-}
-
 .container {
     max-width: 800px;
     margin: 40px auto;
@@ -452,4 +448,31 @@ body {
 button {
     margin: 20px;
     padding: 10px 20px;
+}
+
+body.dark .main-title,
+body.dark .form-label,
+body.dark .anime-title,
+body.dark .anime-details {
+    color: #ececec;
+}
+
+body.dark .form-card,
+body.dark .result-card {
+    background-color: #2A2A2A;
+    border-color: #444;
+}
+
+body.dark .form-control {
+    background-color: #333;
+    border-color: #555;
+    color: #ececec;
+}
+
+body.dark .form-control:focus {
+    background-color: #3a3a3a;
+}
+
+body.dark .form-control::placeholder {
+    color: #9CA3AF;
 }

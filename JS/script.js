@@ -11,6 +11,7 @@ const searchType = document.getElementById("search-type");
 const resultBoard = document.getElementById("resultBoard"); 
 
 
+
 //fetcher options
 const options = {
 	method: 'GET',
@@ -102,10 +103,13 @@ function clearBoard(){
 	resultBoard.innerHTML = "";
 }
 
+initButtons();
 const buttonTheme = document.querySelector("#theme-toggler");
-
+if (sessionStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
 buttonTheme.addEventListener("click", function () {
     document.body.classList.toggle("dark");
+	const mode = document.body.classList.contains("dark") ? "dark" : "light";
+    sessionStorage.setItem("theme", mode);
 });
-
-initButtons();
