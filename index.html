@@ -7,12 +7,13 @@
     <title>AnimeRequester</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="CSS/style.css">
-    <script type="module" src="JS/script.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </head>
 
 <body>
     <nav class="topbar">
         <div class="topbar-container">
+            <button id ="theme-toggler">Sombre/Clair</button>
             <div class="topbar-logo">
                 <a href="index.html">
                     <img src="favicon.png" alt="Logo">
@@ -21,17 +22,19 @@
                     </span>
                 </a>
             </div>
+            <button id ="theme-toggler">Changer de mode</button>
         </div>
     </nav>
 
     <main class="container">
         <h1 class="main-title">Rechercher un animé</h1>
         <div class="form-card">
-            <form action="">
+            <form>
                 <div class="form-group">
                     <label for="search-type" class="form-label">Choisissez un type de recherche :</label>
                     <select id="search-type" class="form-control">
                         <option value="title">Rechercher par titre</option>
+                        <option value="id">Rechercher par ID</option>
                         <option value="gender">Rechercher par genre</option>
                     </select>
                 </div>
@@ -41,16 +44,6 @@
                     <input type="text" id="param" class="form-control">
                     <select id="genre" class="form-control" hidden>
                         <option value="">Choisissez un genre</option>
-                        <option value="Action">Action</option>
-                        <option value="Aventure">Aventure</option>
-                        <option value="Comédie">Comédie</option>
-                        <option value="Drame">Drame</option>
-                        <option value="Fantasy">Fantasy</option>
-                        <option value="Horreur">Horreur</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Science-fiction">Science-fiction</option>
-                        <option value="Sport">Sport</option>
-                        <option value="Thriller">Thriller</option>
                     </select>
                 </div>
 
@@ -68,7 +61,7 @@
             <div class="footer-row">
                 <div class="footer-brand">
                     <h4>
-                        <span>Anime</span>Requester
+                        <span>Anime</span> Requester
                     </h4>
                     <p class="footer-muted footer-small">
                         Projet R301 - BUT Informatique
