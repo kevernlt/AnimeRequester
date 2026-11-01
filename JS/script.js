@@ -5,6 +5,7 @@ const searchField = document.getElementById("param");
 const searchType = document.getElementById("search-type");
 const resultBoard = document.getElementById("resultBoard");
 const genre = document.getElementById("genre");
+const buttonTheme = document.querySelector("#theme-toggler");
 
 //let variables
 let actualPage = 0;
@@ -198,6 +199,12 @@ function createResult(anime) {
 	resultBoard.appendChild(resultCard);
 }
 
+//initializing hte buttons
+function initButtons(){
+    if (searchButton) {
+        searchButton.addEventListener("click", async (e) => search(e));
+    }
+}
 //Load more button for multiple result
 function needLoadMore() {
 	if (nextPage) {
@@ -211,14 +218,19 @@ function needLoadMore() {
 	}
 }
 
-//initializing the buttons
-function initButtons() {
-	searchButton.addEventListener("click", async (e) => search(e));
-}
-
 //clearing board
 function clearBoard() {
 	resultBoard.innerHTML = "";
 }
 
+if (sessionStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
+buttonTheme.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+	const mode = document.body.classList.contains("dark") ? "dark" : "light";
+    sessionStorage.setItem("theme", mode);
+});
+
 initButtons();
+
