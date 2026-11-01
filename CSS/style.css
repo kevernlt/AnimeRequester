@@ -1,67 +1,15 @@
-:root{
-    --bg: #ececec;
-    --text: #212121;
-    --label: #111111;
-    --title:#0F172A;
-    --card-bg: #FFFFFF;
-    --card-border:#E2E8F0;
-    --input-bg:#F8FAFC; 
-    --input-border: #A0AEC0;
-    --input-focus-bg: #FFFFFF;
-    --focus-border: #2563EB;
-    --main-title:#111; 
-    --button-mode: #0F172A;
-    --text-button-mode:#FFFFFF;
-}
-
-body.dark {
-    --bg: #212121;
-    --text: #E6E8EB;
-    --label: #F1F5F9;
-    --title: #F8FAFC;
-    --card-bg: #1C2026;
-    --card-border: #2D343D;
-    --input-bg: #14181D;
-    --input-border: #4B5563;
-    --input-focus-bg: #1C2026;
-    --input-border: #4B5563;
-    --main-title:#A0AEC0;
-    --button-mode: #0F172A;
-    --text-button-mode:#FFFFFF;
-}
-
-html,
-body {
-    margin: 0;
-    min-height: 100%;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    background-color: var(--bg);
-    color: #212121;
-
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark {
-    --bg: #121417;
-    --text: #E6E8EB;
-    --label: #F1F5F9;
-}
-
-button {
-    margin: 20px;
-    padding: 10px 20px;
-}
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -73,20 +21,29 @@ button {
 
 .main-title {
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-    color:var(--main-title);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    color: #212529;
+}
+
+.form-card,
+.result-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(108, 117, 125, 0.15);
+    border-radius: 14px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .form-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: 0px 2px 8px;
-    margin-bottom: 20px;
+    padding: 40px;
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.07);
 }
 
 .form-group {
@@ -100,7 +57,7 @@ button {
     flex: 1;
     color: #212529;
     font-size: 14px;
-    color: var(--label);
+    font-weight: 700;
 }
 
 .form-control {
@@ -110,10 +67,8 @@ button {
     color: #212529;
     background-color: #f8f9fa;
     font-size: 14px;
-    border: 1px solid var(--input-border);
-    border-radius: 4px;
-    background-color: var(--input-bg);
-    color: var(--text);
+    border: 1px solid #ced4da;
+    border-radius: 8px;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -123,8 +78,9 @@ button {
 }
 
 .form-control:focus {
-    border-color: var(--focus-border);
-    background-color: var(--input-focus-bg);
+    background-color: #ffffff;
+    border-color: rgb(210, 10, 40);
+    box-shadow: 0px 0px 0px 3px rgba(210, 10, 40, 0.12);
 }
 
 .button-group {
@@ -136,17 +92,18 @@ button {
 }
 
 .btn {
-    background-color: var(--focus-border);
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 32px;
+    color: #ffffff;
+    background-color: rgb(210, 10, 40);
     font-size: 14px;
     font-weight: 700;
     border: 1px solid rgb(210, 10, 40);
     border-radius: 8px;
     cursor: pointer;
-    border-radius: 14px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
@@ -162,11 +119,6 @@ button {
 }
 
 .result-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 28px;
-    box-shadow: 0px 2px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,10 +128,11 @@ button {
 }
 
 .anime-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--title);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    color: #212529;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .anime-poster {
@@ -456,58 +409,6 @@ button {
     color: #fff;
 }
 
-#theme-toggler {
-    border-radius: 5%;
-    background-color:var(--button-mode);
-    color: var(--text-button-mode);
-}
-
-html,
-body {
-    margin: 0;
-    min-height: 100%;
-}
-
-body {
-    min-height: 100vh;
-
-    background-color: var(--bg);
-    color: #212121;
-
-    transition: background-color 0.3s, color 0.3s;
-}
-
-button {
-    margin: 20px;
-    padding: 10px 20px;
-}
-
-body.dark .main-title,
-body.dark .form-label,
-body.dark .anime-title,
-body.dark .anime-details {
-    color: #ececec;
-}
-
-body.dark .form-card,
-body.dark .result-card {
-    background-color: #2A2A2A;
-    border-color: #444;
-}
-
-body.dark .form-control {
-    background-color: #333;
-    border-color: #555;
-    color: #ececec;
-}
-
-body.dark .form-control:focus {
-    background-color: #3a3a3a;
-}
-
-body.dark .form-control::placeholder {
-    color: #9CA3AF;
-}
 .result-card > img {
     width: 260px;
     max-width: 100%;
