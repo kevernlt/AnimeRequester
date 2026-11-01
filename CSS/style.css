@@ -38,7 +38,7 @@ body {
 
 body {
     min-height: 100vh;
-
+    display: flex;
     background-color: var(--bg);
     color: #212121;
 
@@ -65,7 +65,8 @@ button {
 }
 
 .container {
-    max-width: 800px;
+    flex: 1;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0px 20px;
 }
@@ -91,26 +92,34 @@ button {
 .form-group {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
     gap: 20px;
+    margin-bottom: 20px;
 }
 
 .form-label {
-    font-weight: bold;
+    flex: 1;
+    color: #212529;
     font-size: 14px;
     color: var(--label);
 }
 
 .form-control {
-    width: 65%;
-    padding: 8px 12px;
+    flex: 1;
+    min-width: 0px;
+    padding: 11px 14px;
+    color: #212529;
+    background-color: #f8f9fa;
     font-size: 14px;
     border: 1px solid var(--input-border);
     border-radius: 4px;
     background-color: var(--input-bg);
     color: var(--text);
     outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-control:hover {
+    border-color: #adb5bd;
 }
 
 .form-control:focus {
@@ -121,8 +130,9 @@ button {
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
 }
 
 .btn {
@@ -131,17 +141,24 @@ button {
     border: none;
     padding: 10px 40px;
     font-size: 14px;
+    font-weight: 700;
+    border: 1px solid rgb(210, 10, 40);
+    border-radius: 8px;
     cursor: pointer;
     border-radius: 14px;
     transition: background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: #1D4ED8;
+    background-color: rgb(180, 8, 34);
+    border-color: rgb(180, 8, 34);
+    box-shadow: 0px 4px 10px rgba(210, 10, 40, 0.18);
+    transform: translateY(-2px);
 }
 
 .btn:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
+    box-shadow: none;
 }
 
 .result-card {
@@ -153,7 +170,9 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 32px;
     text-align: center;
+    margin-top: 20px;
 }
 
 .anime-title {
@@ -164,29 +183,46 @@ button {
 }
 
 .anime-poster {
+    display: block;
     width: 260px;
+    max-width: 100%;
     height: 370px;
-    border-radius: 4px;
-    box-shadow: 0px 4px 10px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anime-poster:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
 }
 
 .anime-details {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    width: 100%;
+    color: #495057;
     font-size: 14px;
-    color: #1E293B;
-}
-
-.synopsis-text {
-    text-align: justify;
-    margin-bottom: 10px;
+    text-align: left;
 }
 
 .anime-info-line {
-    font-size: 15px;
+    padding: 12px 14px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    color: #343a40;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.synopsis-text {
+    margin-bottom: 10px;
+    color: #495057;
+    line-height: 1.8;
+    text-align: justify;
 }
 
 .topbar {
@@ -202,15 +238,11 @@ button {
     position: relative;
     width: 100%;
     max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0px auto;
+    padding: 0px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.topbar-logo {
-    flex-shrink: 0;
 }
 
 .topbar-logo a {
@@ -476,3 +508,44 @@ body.dark .form-control:focus {
 body.dark .form-control::placeholder {
     color: #9CA3AF;
 }
+.result-card > img {
+    width: 260px;
+    max-width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.result-card .MALBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    width: auto;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #2E51A2;
+    border: none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.result-card .MALBtn:hover {
+    background-color: #1F3A7A;
+}
+
+.MALBtn img {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+#loadBtn {
+    display: block;
+    margin: 24px auto;
+    padding: 12px 40px;
+}
+
