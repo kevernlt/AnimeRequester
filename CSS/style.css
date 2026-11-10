@@ -282,6 +282,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease, background-color 0.2s ease;
+    flex-shrink: 0;
 }
 
 .btn-top:hover {
@@ -448,5 +449,68 @@ body {
     display: block;
     margin: 24px auto;
     padding: 12px 40px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    .main-title{
+        font-size: 24px;
+    }
+
+    .form-card {
+        padding: 24px 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .result-card {
+        padding: 20px;
+    }
+
+    .anime-title {
+        font-size: 20px;
+    }
+
+    .footer-brand,
+    .footer-column {
+        flex: 1 1 100%;
+    }
+
+    .btn-top {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .topbar-container {
+        gap:12px; 
+    }
+
+    .topbar-logo a {
+        font-size: 17px;
+        letter-spacing: 0.6px;
+    }
+
+    .topbar-logo img {
+        height: 36px;
+    }
+
+    .topbar-content {
+        margin-left: 0;
+        flex: 0 0 auto;
+    }
+
+    .topbar-actions {
+        margin-left: 0;
+}
+
+
 }
 
