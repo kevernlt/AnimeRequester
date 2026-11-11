@@ -22,22 +22,7 @@ const options = {
 };
 
 //search by genre
-searchType.addEventListener("change", function () {
-	if (searchType.value === "gender") {
-		// by genre
-		searchField.hidden = true;
-		genre.hidden = false;
-		searchField.required = false;
-		genre.required = true;
-		optionGenres();
-	} else {
-		// by title
-		searchField.hidden = false;
-		genre.hidden = true;
-		searchField.required = true;
-		genre.required = false;
-	}
-});
+
 
 //alt information in console
 function afficheMeta(res) {
@@ -109,9 +94,11 @@ async function search(e) {
 	let res;
 	if (searchTypeActual == "title") {
 		searchContent = searchField.value;
+		if(searchContent == '')return;
 		res = await rechercheParTitre(searchContent, 1);
 	} else if (searchTypeActual == "id") {
 		searchContent = searchField.value;
+		if(searchContent == '')return;
 		res = await rechercheParId(searchContent);
 	}
 	else {
@@ -121,7 +108,7 @@ async function search(e) {
 	}
 	console.log(res);
 	if (searchTypeActual == "id") {
-		if(res.status ==404)return idNotExist();
+		if (res.status == 404) return idNotExist();
 		createResult(res.data);
 	} else {
 		if (res.pagination.items.total == 0) return noResult();
@@ -173,7 +160,9 @@ function badParam() {
 	err.innerHTML = `Ce genre n'existe pas.`;
 	resultBoard.appendChild(err);
 }
-function idNotExist(){
+
+//handle id not existing
+function idNotExist() {
 	const err = document.createElement("div");
 	err.classList.add("error");
 	err.innerHTML = `Cet ID n'est relié à aucun anime.`;
@@ -189,9 +178,9 @@ function createResult(anime) {
 		<img src="${anime.images.jpg.image_url}" alt="${anime.images.jpg.image_url}">
 		<div class="anime-details">
 		<p class="synopsis-text"><strong>Synopsis :</strong> ${anime.synopsis}</p>
-		<p class="anime-info-line"><strong>Genre :</strong> ${anime.genres.map(g => g.name).join(', ')}</p>
-		<p class="anime-info-line"><strong>Classement :</strong> ${anime.rank}</p>
-		<p class="anime-info-line"><strong>Nombre d'épisodes :</strong> ${anime.episodes}</p>
+		<p class="anime-info-line"><span class="anime-info-text" ><strong>Genre :</strong> ${anime.genres.map(g => g.name).join(', ')}</span></p>
+		<p class="anime-info-line"><span class="anime-info-text" ><strong>Classement :</strong> ${anime.rank}</span></p>
+		<p class="anime-info-line"><span class="anime-info-text" ><strong>Nombre d'épisodes :</strong> ${anime.episodes}</span></p>
 		<a href="${anime.url}" class="btn MALBtn" target="_blank" rel="noopener noreferrer">Voir sur <img src="MALIcon.svg" alt="MyAnimeList"></a>
 		</div>
 	`;
@@ -213,7 +202,38 @@ function needLoadMore() {
 
 //initializing the buttons
 function initButtons() {
-	searchButton.addEventListener("click", async (e) => search(e));
+	if (searchButton) {
+		searchButton.addEventListener("click", async (e) => search(e));
+
+		searchType.addEventListener("change", function () {
+			if (searchType.value === "gender") {
+				// by genre
+				searchField.hidden = true;
+				genre.hidden = false;
+				searchField.required = false;
+				genre.required = true;
+				optionGenres();
+			} else if(searchType.value==="title"){
+				// by title
+				searchField.hidden = false;
+				genre.hidden = true;
+				searchField.required = true;
+				searchField.type = 'text';
+				genre.required = false;
+			} else {
+				searchField.hidden = false;
+				genre.hidden = true;
+				searchField.required = true;
+				searchField.type = 'number';
+				genre.required = false;
+			}
+		});
+		eraseButton.addEventListener("click", (e) => {
+			e.preventDefault();
+			searchField.value='';
+			clearBoard();
+		});
+	}
 }
 
 //clearing board

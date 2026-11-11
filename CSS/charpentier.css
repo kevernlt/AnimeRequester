@@ -1,3 +1,19 @@
+:root {
+    --charp-heading: #212529;
+    --charp-muted: #6c757d;
+    --charp-section-bg: #FFF;
+    --charp-card-bg: #F8F9FA;
+    --charp-role-text: #fff;
+}
+
+body.dark {
+    --charp-heading: #F8F9FA;
+    --charp-muted: #67707a;
+    --charp-section-bg: #212529;
+    --charp-card-bg: #212529;
+    --charp-role-text: #212529;
+}
+
 .main-container {
     width: 100%;
     max-width: 1140px;
@@ -26,14 +42,14 @@
 
 .page-header h1 {
     margin: 0px 0px 8px;
-    color: #212529;
+    color:var(--charp-heading);
     font-size: 42px;
     font-weight: 700;
 }
 
 .page-header p {
     margin: 0px;
-    color: #6c757d;
+    color: var(--charp-muted);
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -43,7 +59,7 @@
 .about-section, .members-section {
     margin-bottom: 50px;
     padding: 40px;
-    background-color: #FFF;
+    background-color: var(--charp-section-bg);
     border: 1px solid rgba(108, 117, 125, 0.1);
     border-radius: 16px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
@@ -51,7 +67,7 @@
 
 .about-section h2, .members-section h2 {
     margin: 0px 0px 20px;
-    color: #212529;
+    color: var(--charp-heading);
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -71,7 +87,7 @@
 }
 
 .about-section strong {
-    color: #212529;
+    color:var(--charp-heading);
 }
 
 .members-grid {
@@ -86,7 +102,7 @@
     flex-direction: column;
     align-items: center;
     padding: 32px 24px;
-    background-color: #F8F9FA;
+    background-color: var(--charp-card-bg);
     border-radius: 12px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
@@ -128,7 +144,7 @@
 
 .member-card h3 {
     margin: 0px 0px 8px;
-    color: #212529;
+    color:var(--charp-heading);
     font-size: 17px;
     font-weight: 700;
 }
@@ -149,8 +165,8 @@
     margin-top: auto;
     padding: 7px 14px;
     border-radius: 50px;
-    background-color: #212529;
-    color: #fff;
+    background-color: var(--charp-heading);
+    color: var(--charp-role-text);
     font-size: 13px;
     font-weight: 600;
 }

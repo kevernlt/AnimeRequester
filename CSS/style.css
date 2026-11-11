@@ -1,15 +1,46 @@
+:root{
+    --bg: #ececec;
+    --text: #212121;
+    --label: #111111;
+    --title:#0F172A;
+    --card-bg: #FFFFFF;
+    --card-border:#E2E8F0;
+    --input-bg:#F8FAFC; 
+    --input-border: #A0AEC0;
+    --input-focus-bg: #FFFFFF;
+    --focus-border: #b90000;
+    --main-title:#111; 
+    --button-mode: #0F172A;
+    --text-button-mode:#FFFFFF;
+}
+
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    color: #212121;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    --bg: #121417;
+    --text: #E6E8EB;
+    --label: #F1F5F9;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background-color: #F5F5F5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 .container {
@@ -21,11 +52,11 @@ body {
 
 .main-title {
     text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 30px;
-    color: #212529;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    color:var(--main-title);
 }
 
 .form-card,
@@ -57,7 +88,7 @@ body {
     flex: 1;
     color: #212529;
     font-size: 14px;
-    font-weight: 700;
+    color: var(--label);
 }
 
 .form-control {
@@ -67,8 +98,10 @@ body {
     color: #212529;
     background-color: #f8f9fa;
     font-size: 14px;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text);
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -78,9 +111,8 @@ body {
 }
 
 .form-control:focus {
-    background-color: #ffffff;
-    border-color: rgb(210, 10, 40);
-    box-shadow: 0px 0px 0px 3px rgba(210, 10, 40, 0.12);
+    border-color: var(--focus-border);
+    background-color: var(--input-focus-bg);
 }
 
 .button-group {
@@ -92,33 +124,30 @@ body {
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 11px 32px;
-    color: #ffffff;
-    background-color: rgb(210, 10, 40);
+    background-color: var(--focus-border);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 40px;
     font-size: 14px;
-    font-weight: 700;
-    border: 1px solid rgb(210, 10, 40);
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 14px;
+    transition: background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: rgb(180, 8, 34);
-    border-color: rgb(180, 8, 34);
-    box-shadow: 0px 4px 10px rgba(210, 10, 40, 0.18);
-    transform: translateY(-2px);
+    background-color: #7e0808;
 }
 
 .btn:active {
     transform: scale(0.97);
-    box-shadow: none;
 }
 
 .result-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0px 2px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,11 +157,10 @@ body {
 }
 
 .anime-title {
-    margin-bottom: 24px;
-    color: #212529;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--title);
+    margin-bottom: 20px;
 }
 
 .anime-poster {
@@ -410,6 +438,64 @@ body {
     color: #fff;
 }
 
+.btn-theme {
+    margin: 0;
+    color: #212529;
+    background-color: rgb(255, 220, 0);
+    border: 1px solid rgb(255, 220, 0);
+    cursor: pointer;
+}
+
+.btn-theme:hover {
+    background-color: rgb(255, 232, 80);
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--bg);
+    color: #212121;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+}
+
+body.dark .main-title,
+body.dark .form-label,
+body.dark .anime-title,
+body.dark .anime-details {
+    color: #ececec;
+}
+
+body.dark .form-card,
+body.dark .result-card {
+    background-color: #2A2A2A;
+    border-color: #444;
+}
+
+body.dark .form-control {
+    background-color: #333;
+    border-color: #555;
+    color: #ececec;
+}
+
+body.dark .form-control:focus {
+    background-color: #3a3a3a;
+}
+
+body.dark .form-control::placeholder {
+    color: #9CA3AF;
+}
 .result-card > img {
     width: 260px;
     max-width: 100%;
@@ -514,3 +600,46 @@ body {
 
 }
 
+body.dark .page-header h1,
+body.dark .page-header p,
+body.dark .legal-card h2,
+body.dark .details-list strong {
+    color: #ffffff;
+}
+
+body.dark .legal-card,
+body.dark .anime-info-line {
+    background: #2A2A2A;
+    border-color: #444;
+}
+
+body.dark .legal-card p,
+body.dark .legal-card li,
+body.dark .details-list li,
+body.dark .synopsis-text,
+body.dark .anime-info-text,
+body.dark .muted {
+    color: #ececec;
+}
+
+body.dark .detail-icon {
+    background-color: #3a3a3a;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 16px;
+    color: #b00020;
+    background-color: #fdecee;
+    border: 1px solid #f5c2c7;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+body.dark .error {
+    color: #ff8a8a;
+    background-color: #3a2326;
+    border-color: #7a3b41;
+}
