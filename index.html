@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="CSS/style.css">
     <script src="JS/script.js" defer></script>
+    <script src="JS/theme.js" defer></script>
 </head>
 
 <body>
@@ -20,6 +21,9 @@
                         <span class="topbar-title">Anime</span>Requester
                     </span>
                 </a>
+            </div>
+            <div class="topbar-actions">
+                <button id="theme-toggler" class="btn-top btn-theme" type="button">Sombre/Clair</button>
             </div>
         </div>
     </nav>
@@ -41,7 +45,7 @@
                     <label for="param" class="form-label">Paramètre :</label>
                     <input type="text" id="param" class="form-control">
                     <select id="genre" class="form-control" hidden>
-                        <option value="">Choisissez un genre</option>
+                        <option value="0">Choisissez un genre</option>
                     </select>
                 </div>
 
@@ -59,7 +63,7 @@
             <div class="footer-row">
                 <div class="footer-brand">
                     <h4>
-                        <span>Anime</span> Requester
+                        <span>Anime</span>Requester
                     </h4>
                     <p class="footer-muted footer-small">
                         Projet R301 - BUT Informatique
