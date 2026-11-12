@@ -178,7 +178,7 @@ function createResult(anime) {
 		<img src="${anime.images.jpg.image_url}" alt="${anime.images.jpg.image_url}">
 		<div class="anime-details">
 		<p class="synopsis-text"><strong>Synopsis :</strong> ${anime.synopsis}</p>
-		<p class="anime-info-line"><span class="anime-info-text" ><strong>Genre :</strong> ${anime.genres.map(g => g.name).join(', ')}</span></p>
+		<p class="anime-info-line"><span class="anime-info-text" ><strong>Genre :</strong> ${[...anime.genres,...anime.themes].map(g=>g.name).join(', ')}</span></p>
 		<p class="anime-info-line"><span class="anime-info-text" ><strong>Classement :</strong> ${anime.rank}</span></p>
 		<p class="anime-info-line"><span class="anime-info-text" ><strong>Nombre d'épisodes :</strong> ${anime.episodes}</span></p>
 		<a href="${anime.url}" class="btn MALBtn" target="_blank" rel="noopener noreferrer">Voir sur <img src="MALIcon.svg" alt="MyAnimeList"></a>
