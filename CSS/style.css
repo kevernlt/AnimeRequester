@@ -380,7 +380,7 @@ button {
     flex: 1 1 40%;
 }
 
-.footer-brand h4 {
+.footer-brand h2 {
     margin: 0 0 1rem;
     color: #fff;
     font-size: 1.5rem;
@@ -389,7 +389,7 @@ button {
     letter-spacing: 0.08em;
 }
 
-.footer-brand h4 span {
+.footer-brand h2 span {
     color: rgb(255, 220, 0);
 }
 
