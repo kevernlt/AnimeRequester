@@ -203,4 +203,9 @@ body.dark {
     color: rgb(255, 220, 0);
 }
 
-
+.footer-column h5 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+}
