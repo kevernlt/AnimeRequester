@@ -21,21 +21,6 @@ const options = {
 	}
 };
 
-//search by genre
-
-
-//alt information in console
-function afficheMeta(res) {
-	console.log(res.meta);
-}
-
-//result of the search in console
-function afficheRes(res) {
-	res.data.forEach(element => {
-		console.log(element);
-	});
-}
-
 //search function
 async function recherche(url, options) {
 	try {
@@ -43,28 +28,24 @@ async function recherche(url, options) {
 		const result = await response.json();
 		return result;
 	} catch (error) {
-		console.error(error);
 	}
 }
 
 //genre-search function 
 async function rechercheParGenre(genre, page) {
 	const urlGenre = `https://api.tenrai.org/v1/anime?page=${page}&limit=10&genres=${genre}`;
-	console.log(urlGenre);
 	return await recherche(urlGenre, options);
 }
 
 //title-search function
 async function rechercheParTitre(titre, page) {
 	const urlTitre = `https://api.tenrai.org/v1/anime?q=${titre}&page=${page}&limit=10`;
-	console.log(urlTitre);
 	return await recherche(urlTitre, options);
 }
 
 //Id-search function
 async function rechercheParId(id) {
 	const urlId = `https://api.tenrai.org/v1/anime/${id}`;
-	console.log(urlId);
 	return await recherche(urlId, options);
 }
 
@@ -72,7 +53,6 @@ async function rechercheParId(id) {
 async function getGenres() {
 	const urlGenre = 'https://api.tenrai.org/v1/genres/anime';
 	const res = await recherche(urlGenre, options);
-	console.log(res);
 	return res.data;
 }
 
@@ -106,7 +86,6 @@ async function search(e) {
 		res = await rechercheParGenre(searchContent, 1);
 		if (!res) return badParam();
 	}
-	console.log(res);
 	if (searchTypeActual == "id") {
 		if (res.status == 404) return idNotExist();
 		createResult(res.data);
@@ -134,7 +113,6 @@ async function searchNoClear(e, page) {
 		res = await rechercheParGenre(searchContent, page);
 		if (!res) return badParam();
 	}
-	console.log(res);
 	if (res.pagination.items.total == 0) return noResult();
 	res.data.forEach(element => {
 		createResult(element);
