@@ -33,7 +33,7 @@
 
 .page-header p { 
     margin: 20px;
-    color: #6c757d;
+    color: #404549;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -127,4 +127,8 @@
         margin: 10px 16px;
         padding: 20px;
     }
+}
+
+body.dark .mail{
+    color: rgb(0, 140, 233);
 }

@@ -34,7 +34,7 @@
 
 .page-header p {
     margin: 20px 0px 30px;
-    color: #6c757d;
+    color:#404549;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -89,8 +89,8 @@
     margin-bottom: 7px;
 }
 
-.legal-card a {
-    color: #d20a28;
+body.dark .legal-card a {
+    color: rgb(0, 140, 233);
 }
 
 .muted {

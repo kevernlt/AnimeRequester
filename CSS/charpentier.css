@@ -209,3 +209,11 @@ body.dark {
     color: #fff;
     font-size: 1.1rem;
 }
+
+body.dark .member-card p{
+    color: #d7dadd;
+}
+
+body.dark .about-section p{
+    color: #ffffff;
+} 
